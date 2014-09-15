@@ -50,16 +50,9 @@ IPT_XYZ_TO_LMS_MATRIX = np.array([
 IPT_XYZ_TO_LMS_MATRIX : array_like, (3, 3)
 """
 
-IPT_LMS_TO_XYZ_MATRIX = np.around(
-    np.linalg.inv(IPT_XYZ_TO_LMS_MATRIX),
-    decimals=4)
+IPT_LMS_TO_XYZ_MATRIX = np.linalg.inv(IPT_XYZ_TO_LMS_MATRIX)
 """
 *IPT* colourspace normalised cone responses to *CIE XYZ* colourspace matrix.
-
-Notes
------
--   This matrix has been rounded on purpose to 4 decimals so in order to keep
-    available precision consistent between transformations.
 
 IPT_LMS_TO_XYZ_MATRIX : array_like, (3, 3)
 """
@@ -74,16 +67,9 @@ IPT_LMS_TO_IPT_MATRIX = np.array([
 IPT_LMS_TO_IPT_MATRIX : array_like, (3, 3)
 """
 
-IPT_IPT_TO_LMS_MATRIX = np.around(
-    np.linalg.inv(IPT_LMS_TO_IPT_MATRIX),
-    decimals=4)
+IPT_IPT_TO_LMS_MATRIX = np.linalg.inv(IPT_LMS_TO_IPT_MATRIX)
 """
 *IPT* colourspace to *IPT* colourspace normalised cone responses matrix.
-
-Notes
------
--   This matrix has been rounded on purpose to 4 decimals so in order to keep
-    available precision consistent between transformations.
 
 IPT_IPT_TO_LMS_MATRIX : array_like, (3, 3)
 """
@@ -140,7 +126,7 @@ def IPT_to_XYZ(IPT):
     --------
     >>> IPT = np.array([1.00300825, 0.01906918, -0.01369292])
     >>> IPT_to_XYZ(IPT)  # doctest: +ELLIPSIS
-    array([ 0.9689994...,  0.9999576...,  1.1218432...])
+    array([ 0.9690723...,  1.        ,  1.1217921...])
     """
 
     LMS = np.dot(IPT_IPT_TO_LMS_MATRIX, IPT)

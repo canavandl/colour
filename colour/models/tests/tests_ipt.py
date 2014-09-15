@@ -67,15 +67,15 @@ class TestIPT_to_XYZ(unittest.TestCase):
 
         np.testing.assert_almost_equal(
             IPT_to_XYZ(np.array([1.00300825, 0.01906918, -0.01369292])),
-            np.array([0.9689994, 0.99995764, 1.1218432]),
+            np.array([0.96907232, 1., 1.12179215]),
             decimal=7)
         np.testing.assert_almost_equal(
             IPT_to_XYZ(np.array([0.73974548, 0.95333412, 1.71951212])),
-            np.array([1.91998253, 0.99988784, -0.12416715]),
+            np.array([1.92001986, 1., -0.1241347]),
             decimal=7)
         np.testing.assert_almost_equal(
             IPT_to_XYZ(np.array([1.06406598, -0.08075812, -0.39625384])),
-            np.array([1.0130757, 0.9999554, 2.11229678]),
+            np.array([1.0131677, 1., 2.11217686]),
             decimal=7)
 
 
